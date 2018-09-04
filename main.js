@@ -50,7 +50,7 @@ function process_request(error, response, body) {
     var info = JSON.parse(body);
     let last_sign_up = get_last_sign_up(info["calls"]);
     if (last_sign_up) {
-      if (is_last_sign_up(last_sign_up["id"])) {
+      if (!is_last_sign_up(last_sign_up["id"])) {
        if (is_recent(last_sign_up["unix_time"])) {
           if (last_sign_up["sale"]) {
             sale = last_sign_up["sale"];
